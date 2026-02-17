@@ -1,3 +1,3 @@
 export * from './components';
-export * from './model';
+export type { ResultSummary as ResultSummaryType, QuestionResult } from './model/types';
 export * from './routes';

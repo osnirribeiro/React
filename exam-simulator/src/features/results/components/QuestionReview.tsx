@@ -1,4 +1,3 @@
-import React from 'react';
 import { QuestionResult } from '../model/types';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Stack } from '@/shared/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';

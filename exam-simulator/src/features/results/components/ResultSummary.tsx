@@ -1,5 +1,4 @@
 import { ResultSummary as ResultSummaryType } from '../model/types';
-import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Stack, Grid } from '@/shared/ui';
 import { CheckCircle2, XCircle, Clock, Trophy, Circle } from 'lucide-react';
 import { formatTime } from '@/shared/utils/formatTime';

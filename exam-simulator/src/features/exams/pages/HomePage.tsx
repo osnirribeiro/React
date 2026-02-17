@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ErrorState } from '@/shared/ui';
 import { useExams } from '../hooks/useExams';
 import { ExamFilters, ExamList } from '../components';

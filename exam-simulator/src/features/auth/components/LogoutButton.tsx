@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, ButtonProps } from '@/shared/ui';
 import { useAuthUser } from '../hooks/useAuthUser';
 import { LogOut } from 'lucide-react';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Stack, Button, Tabs, TabsList, TabsTrigger, TabsContent } from '@/shared/ui';
@@ -35,7 +35,7 @@ export const ResultsPage = () => {
 
       <ResultSummary result={result} />
 
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
+      <Tabs defaultValue="summary" value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="summary">Resumo</TabsTrigger>
           <TabsTrigger value="review">Revisão</TabsTrigger>

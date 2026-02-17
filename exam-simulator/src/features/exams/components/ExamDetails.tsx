@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Clock, BookOpen, Play } from 'lucide-react';
 import { Exam } from '../model/types';

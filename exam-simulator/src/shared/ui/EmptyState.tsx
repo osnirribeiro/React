@@ -34,7 +34,7 @@ export const EmptyState = ({
           )}
         </Stack>
         {action && (
-          <Button onClick={action.onClick} {...action}>
+          <Button {...action} onClick={action.onClick}>
             {action.label}
           </Button>
         )}

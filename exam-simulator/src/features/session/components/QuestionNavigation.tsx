@@ -1,4 +1,3 @@
-import React from 'react';
 import { Question, AttemptAnswer } from '../model/types';
 import { Flag } from 'lucide-react';
 import { cn } from '@/shared/utils/cn';

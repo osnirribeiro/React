@@ -1,4 +1,3 @@
-import React from 'react';
 import { Exam } from '../model/types';
 import { ExamCard } from './ExamCard';
 import { Grid, EmptyState, Skeleton } from '@/shared/ui';

@@ -1,14 +1,19 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, ChangeEvent, forwardRef } from 'react';
 import { cn } from '../utils/cn';
 
 export interface SwitchProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
   label?: string;
+  onCheckedChange?: (checked: boolean) => void;
 }
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ className, label, id, checked, ...props }, ref) => {
+  ({ className, label, id, checked, onCheckedChange, ...props }, ref) => {
     const switchId = id || `switch-${Math.random().toString(36).substr(2, 9)}`;
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      onCheckedChange?.(e.target.checked);
+    };
 
     return (
       <div className="flex items-center space-x-2">
@@ -22,6 +27,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             className="peer sr-only"
             checked={checked}
             {...props}
+            onChange={handleChange}
           />
           <div
             className={cn(

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Question, AttemptAnswer } from '../model/types';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Stack, Checkbox } from '@/shared/ui';
 
@@ -30,7 +29,7 @@ export const QuestionCard = ({
             Questão {questionNumber} de {totalQuestions}
           </CardTitle>
           {isMarkedForReview && (
-            <Badge variant="warning">Marcada para revisão</Badge>
+            <Badge variant="secondary">Marcada para revisão</Badge>
           )}
         </div>
       </CardHeader>

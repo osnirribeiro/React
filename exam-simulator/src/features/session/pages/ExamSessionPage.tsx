@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useExam } from '../../exams/hooks/useExam';
 import { useExamSession } from '../hooks/useExamSession';

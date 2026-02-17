@@ -1,4 +1,3 @@
-import React from 'react';
 import { TimerBadge, Progress, Button, Stack } from '@/shared/ui';
 import { LogOut } from 'lucide-react';
 interface ExamHeaderProps {

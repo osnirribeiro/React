@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, Stack, Switch, Select } from '@/shared/ui';
 import { useSettingsStore } from '../store/settingsStore';
 import { Moon, Sun, Type } from 'lucide-react';
