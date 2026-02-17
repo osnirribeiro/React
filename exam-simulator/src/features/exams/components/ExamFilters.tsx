@@ -30,7 +30,7 @@ export const ExamFilters = ({ filters, onFiltersChange }: ExamFiltersProps) => {
 
   React.useEffect(() => {
     onFiltersChange({ ...filters, search: debouncedSearch || undefined });
-  }, [debouncedSearch]);
+  }, [debouncedSearch, filters, onFiltersChange]);
 
   return (
     <Stack direction="row" spacing="md" className="flex-wrap">

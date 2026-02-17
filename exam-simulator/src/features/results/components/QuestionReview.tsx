@@ -14,12 +14,6 @@ export const QuestionReview = ({
   questionNumber,
 }: QuestionReviewProps) => {
   const { question, userAnswer, isCorrect } = questionResult;
-  const selectedOption = question.options.find(
-    (opt) => opt.id === userAnswer.selectedOptionId
-  );
-  const correctOption = question.options.find(
-    (opt) => opt.id === question.correctOptionId
-  );
 
   return (
     <Card className={cn(isCorrect ? 'border-green-500' : 'border-destructive')}>

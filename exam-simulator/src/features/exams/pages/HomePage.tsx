@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stack, ErrorState } from '@/shared/ui';
+import { ErrorState } from '@/shared/ui';
 import { useExams } from '../hooks/useExams';
 import { ExamFilters, ExamList } from '../components';
 import { ExamFilters as ExamFiltersType } from '../model/types';

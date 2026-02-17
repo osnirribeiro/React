@@ -1,7 +1,6 @@
 import React from 'react';
 import { Question, AttemptAnswer } from '../model/types';
-import { Button, Badge, Stack } from '@/shared/ui';
-import { CheckCircle2, Circle, Flag } from 'lucide-react';
+import { Flag } from 'lucide-react';
 import { cn } from '@/shared/utils/cn';
 
 interface QuestionNavigationProps {

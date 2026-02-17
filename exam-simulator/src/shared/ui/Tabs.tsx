@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, HTMLAttributes, ReactNode } from 'react';
+import { createContext, useContext, useState, HTMLAttributes } from 'react';
 import { cn } from '../utils/cn';
 
 interface TabsContextValue {

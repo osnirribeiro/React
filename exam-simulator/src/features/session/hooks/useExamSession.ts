@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { sessionApi } from '../api/sessionApi';
-import { Question, AttemptAnswer, ExamAttempt } from '../model/types';
+import { AttemptAnswer, ExamAttempt } from '../model/types';
 import { storage } from '@/shared/utils/storage';
 import { useToast } from '@/shared/ui';
 
@@ -41,26 +41,6 @@ export const useExamSession = (
     storage.set(`${STORAGE_KEY_PREFIX}${examId}`, attempt);
   }, [examId, answers, currentQuestionIndex, timeRemaining]);
 
-  // Timer
-  useEffect(() => {
-    if (timeRemaining <= 0) {
-      handleSubmit();
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          handleSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [timeRemaining]);
-
   const { data: questions, isLoading } = useQuery({
     queryKey: ['questions', examId, questionCount],
     queryFn: () => sessionApi.getQuestions(examId, questionCount),
@@ -92,6 +72,26 @@ export const useExamSession = (
       timeSpentSeconds: timeSpent,
     });
   }, [examId, answers, timeRemaining, totalDurationSeconds, questions, submitMutation]);
+
+  // Timer
+  useEffect(() => {
+    if (timeRemaining <= 0) {
+      handleSubmit();
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setTimeRemaining((prev) => {
+        if (prev <= 1) {
+          handleSubmit();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timeRemaining, handleSubmit]);
 
   const updateAnswer = useCallback(
     (questionId: string, selectedOptionId: string | null) => {

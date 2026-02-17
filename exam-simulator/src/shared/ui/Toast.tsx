@@ -82,6 +82,7 @@ const ToastContext = React.createContext<ToastContextValue | undefined>(
   undefined
 );
 
+// eslint-disable-next-line react-refresh/only-export-components -- useToast is the context hook for ToastProvider
 export const useToast = () => {
   const context = React.useContext(ToastContext);
   if (!context) {
