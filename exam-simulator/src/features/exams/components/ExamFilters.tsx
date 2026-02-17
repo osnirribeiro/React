@@ -1,5 +1,9 @@
 import React from 'react';
-import { ExamFilters as ExamFiltersType, ExamArea, ExamDifficulty } from '../model/types';
+import {
+  ExamFilters as ExamFiltersType,
+  ExamArea,
+  ExamDifficulty,
+} from '../model/types';
 import { Input, Select, Stack } from '@/shared/ui';
 import { useDebounce } from '@/shared/hooks';
 
@@ -34,7 +38,7 @@ export const ExamFilters = ({ filters, onFiltersChange }: ExamFiltersProps) => {
 
   return (
     <Stack direction="row" spacing="md" className="flex-wrap">
-      <div className="flex-1 min-w-[200px]">
+      <div className="min-w-[200px] flex-1">
         <Input
           placeholder="Buscar provas..."
           value={searchValue}

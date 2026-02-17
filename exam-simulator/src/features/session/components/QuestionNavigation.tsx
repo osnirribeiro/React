@@ -24,8 +24,8 @@ export const QuestionNavigation = ({
   };
 
   return (
-    <div className="p-4 border-r border-border">
-      <h3 className="font-semibold mb-4">Navegação</h3>
+    <div className="border-r border-border p-4">
+      <h3 className="mb-4 font-semibold">Navegação</h3>
       <div className="grid grid-cols-5 gap-2">
         {questions.map((question, index) => {
           const status = getQuestionStatus(question.id);
@@ -36,17 +36,17 @@ export const QuestionNavigation = ({
               key={question.id}
               onClick={() => onQuestionSelect(index)}
               className={cn(
-                'relative h-10 w-10 rounded-md border-2 transition-colors flex items-center justify-center',
+                'relative flex h-10 w-10 items-center justify-center rounded-md border-2 transition-colors',
                 isCurrent && 'border-primary bg-primary/10',
-                status === 'answered' && 'bg-green-500/20 border-green-500',
-                status === 'review' && 'bg-yellow-500/20 border-yellow-500',
-                status === 'unanswered' && 'bg-muted border-border'
+                status === 'answered' && 'border-green-500 bg-green-500/20',
+                status === 'review' && 'border-yellow-500 bg-yellow-500/20',
+                status === 'unanswered' && 'border-border bg-muted'
               )}
               aria-label={`Questão ${index + 1} - ${status === 'answered' ? 'Respondida' : status === 'review' ? 'Marcada' : 'Não respondida'}`}
             >
               <span className="text-xs font-medium">{index + 1}</span>
               {status === 'review' && (
-                <Flag className="absolute -top-1 -right-1 h-3 w-3 text-yellow-500" />
+                <Flag className="absolute -right-1 -top-1 h-3 w-3 text-yellow-500" />
               )}
             </button>
           );

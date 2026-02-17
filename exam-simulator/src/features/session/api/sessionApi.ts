@@ -22,7 +22,10 @@ export const sessionApi = {
       throw new Error('Erro ao enviar prova. Tente novamente.');
     }
 
-    const questions = getQuestionsForExam(payload.examId, payload.answers.length);
+    const questions = getQuestionsForExam(
+      payload.examId,
+      payload.answers.length
+    );
     const questionResults = questions.map((question) => {
       const answer = payload.answers.find((a) => a.questionId === question.id);
       const isCorrect =

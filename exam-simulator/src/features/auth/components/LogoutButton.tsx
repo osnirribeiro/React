@@ -6,7 +6,11 @@ interface LogoutButtonProps extends Omit<ButtonProps, 'onClick'> {
   returnTo?: string;
 }
 
-export const LogoutButton = ({ returnTo, variant = 'ghost', ...buttonProps }: LogoutButtonProps) => {
+export const LogoutButton = ({
+  returnTo,
+  variant = 'ghost',
+  ...buttonProps
+}: LogoutButtonProps) => {
   const { logout, isLoading } = useAuthUser();
 
   const handleLogout = () => {

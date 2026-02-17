@@ -11,14 +11,16 @@ export const HomePage = () => {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Simulador de Provas</h1>
-        <p className="text-muted-foreground text-lg">
+        <h1 className="text-3xl font-bold tracking-tight">
+          Simulador de Provas
+        </h1>
+        <p className="text-lg text-muted-foreground">
           Escolha uma prova e teste seus conhecimentos
         </p>
       </div>
-      
+
       <ExamFilters filters={filters} onFiltersChange={setFilters} />
-      
+
       {error ? (
         <ErrorState
           title="Erro ao carregar provas"

@@ -1,5 +1,13 @@
 import { Question, AttemptAnswer } from '../model/types';
-import { Card, CardContent, CardHeader, CardTitle, Badge, Stack, Checkbox } from '@/shared/ui';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Badge,
+  Stack,
+  Checkbox,
+} from '@/shared/ui';
 
 interface QuestionCardProps {
   question: Question;
@@ -40,7 +48,7 @@ export const QuestionCard = ({
             {question.options.map((option) => (
               <label
                 key={option.id}
-                className="flex items-start gap-3 p-3 rounded-md border border-border hover:bg-accent cursor-pointer transition-colors"
+                className="flex cursor-pointer items-start gap-3 rounded-md border border-border p-3 transition-colors hover:bg-accent"
               >
                 <Checkbox
                   checked={selectedOptionId === option.id}

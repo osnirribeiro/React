@@ -5,5 +5,7 @@ export const HomePage = lazy(() =>
 );
 
 export const ExamDetailsPage = lazy(() =>
-  import('./pages/ExamDetailsPage').then((m) => ({ default: m.ExamDetailsPage }))
+  import('./pages/ExamDetailsPage').then((m) => ({
+    default: m.ExamDetailsPage,
+  }))
 );

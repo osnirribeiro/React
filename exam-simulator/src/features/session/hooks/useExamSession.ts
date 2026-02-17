@@ -71,7 +71,14 @@ export const useExamSession = (
       answers,
       timeSpentSeconds: timeSpent,
     });
-  }, [examId, answers, timeRemaining, totalDurationSeconds, questions, submitMutation]);
+  }, [
+    examId,
+    answers,
+    timeRemaining,
+    totalDurationSeconds,
+    questions,
+    submitMutation,
+  ]);
 
   // Timer
   useEffect(() => {
@@ -99,9 +106,7 @@ export const useExamSession = (
         const existing = prev.find((a) => a.questionId === questionId);
         if (existing) {
           return prev.map((a) =>
-            a.questionId === questionId
-              ? { ...a, selectedOptionId }
-              : a
+            a.questionId === questionId ? { ...a, selectedOptionId } : a
           );
         }
         return [

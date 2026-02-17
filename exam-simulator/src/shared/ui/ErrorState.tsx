@@ -20,7 +20,7 @@ export const ErrorState = ({
   action,
 }: ErrorStateProps) => {
   return (
-    <div className="flex flex-col items-center justify-center py-12 px-4">
+    <div className="flex flex-col items-center justify-center px-4 py-12">
       <Stack spacing="lg" align="center">
         <div className="text-destructive">
           {icon || <AlertCircle className="h-12 w-12" />}
@@ -28,7 +28,7 @@ export const ErrorState = ({
         <Stack spacing="sm" align="center">
           <h3 className="text-lg font-semibold text-foreground">{title}</h3>
           {description && (
-            <p className="text-sm text-muted-foreground text-center max-w-md">
+            <p className="max-w-md text-center text-sm text-muted-foreground">
               {description}
             </p>
           )}

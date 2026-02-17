@@ -5,7 +5,11 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export const Container = ({ className, children, ...props }: ContainerProps) => {
+export const Container = ({
+  className,
+  children,
+  ...props
+}: ContainerProps) => {
   return (
     <div
       className={cn('mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8', className)}

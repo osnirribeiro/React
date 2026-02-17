@@ -18,13 +18,13 @@ export const ExamHeader = ({
   const progress = (currentQuestion / totalQuestions) * 100;
 
   return (
-    <div className="border-b border-border bg-card sticky top-0 z-10">
+    <div className="sticky top-0 z-10 border-b border-border bg-card">
       <div className="container mx-auto px-4 py-4">
         <Stack direction="row" spacing="md" justify="between" align="center">
-          <div className="flex-1 min-w-0">
-            <h1 className="text-lg font-semibold truncate">{examTitle}</h1>
+          <div className="min-w-0 flex-1">
+            <h1 className="truncate text-lg font-semibold">{examTitle}</h1>
             <Progress value={progress} className="mt-2" />
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="mt-1 text-xs text-muted-foreground">
               Questão {currentQuestion} de {totalQuestions}
             </p>
           </div>

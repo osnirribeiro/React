@@ -25,7 +25,10 @@ const generateQuestions = (examId: string, count: number): Question[] => {
   return questions;
 };
 
-export const getQuestionsForExam = (examId: string, count: number): Question[] => {
+export const getQuestionsForExam = (
+  examId: string,
+  count: number
+): Question[] => {
   return generateQuestions(examId, count);
 };
 

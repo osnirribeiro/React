@@ -32,10 +32,12 @@ export class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="flex min-h-screen items-center justify-center p-4">
           <ErrorState
             title="Algo deu errado"
-            description={this.state.error?.message || 'Ocorreu um erro inesperado'}
+            description={
+              this.state.error?.message || 'Ocorreu um erro inesperado'
+            }
             action={{
               label: 'Recarregar página',
               onClick: () => window.location.reload(),

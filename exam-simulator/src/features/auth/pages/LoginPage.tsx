@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/ui';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/shared/ui';
 import { LoginButton } from '../components';
 import { useAuthUser } from '../hooks/useAuthUser';
 import { BookOpen, GraduationCap } from 'lucide-react';
@@ -11,7 +17,8 @@ export const LoginPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/';
+  const from =
+    (location.state as { from?: { pathname?: string } })?.from?.pathname || '/';
 
   useEffect(() => {
     if (isAuthenticated && !isLoading) {
@@ -22,11 +29,11 @@ export const LoginPage = () => {
   if (isLoading) {
     return (
       <Card className="w-full">
-        <CardHeader className="text-center space-y-4">
-          <Skeleton className="h-12 w-12 mx-auto rounded-full" />
+        <CardHeader className="space-y-4 text-center">
+          <Skeleton className="mx-auto h-12 w-12 rounded-full" />
           <div className="space-y-2">
-            <Skeleton className="h-8 w-48 mx-auto" />
-            <Skeleton className="h-4 w-64 mx-auto" />
+            <Skeleton className="mx-auto h-8 w-48" />
+            <Skeleton className="mx-auto h-4 w-64" />
           </div>
         </CardHeader>
         <CardContent>
@@ -41,8 +48,8 @@ export const LoginPage = () => {
   }
 
   return (
-    <Card className="w-full shadow-soft-lg border-2">
-      <CardHeader className="text-center space-y-4 pb-4">
+    <Card className="w-full border-2 shadow-soft-lg">
+      <CardHeader className="space-y-4 pb-4 text-center">
         <div className="flex justify-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-lg">
             <GraduationCap className="h-8 w-8" />
@@ -70,7 +77,7 @@ export const LoginPage = () => {
 
         <LoginButton className="w-full" size="lg" returnTo={from} />
 
-        <p className="text-xs text-center text-muted-foreground leading-relaxed">
+        <p className="text-center text-xs leading-relaxed text-muted-foreground">
           Ao fazer login, você concorda com nossos{' '}
           <a href="#" className="text-primary hover:underline">
             termos de uso

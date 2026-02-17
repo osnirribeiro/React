@@ -43,7 +43,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-50 w-64 transform bg-card border-r border-border transition-transform duration-300 ease-in-out lg:translate-x-0',
+          'fixed inset-y-0 left-0 z-50 w-64 transform border-r border-border bg-card transition-transform duration-300 ease-in-out lg:translate-x-0',
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -58,7 +58,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </div>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground lg:hidden"
             >
               <X className="h-5 w-5" />
             </button>
@@ -89,15 +89,15 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
           {/* User section */}
           <div className="border-t border-border p-4">
-            <div className="flex items-center gap-3 mb-3">
+            <div className="mb-3 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <User className="h-5 w-5" />
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-medium">
                   {user?.name || 'Usuário'}
                 </p>
-                <p className="text-xs text-muted-foreground truncate">
+                <p className="truncate text-xs text-muted-foreground">
                   {user?.email}
                 </p>
               </div>
@@ -110,7 +110,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Topbar */}
-        <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 px-4 lg:px-6">
+        <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border bg-card/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-card/60 lg:px-6">
           <Button
             variant="ghost"
             size="sm"
@@ -123,9 +123,9 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <div className="flex flex-1 items-center justify-between">
             <h1 className="text-lg font-semibold">Exam Simulator</h1>
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex">
                 <User className="h-4 w-4" />
-                <span className="truncate max-w-[150px]">
+                <span className="max-w-[150px] truncate">
                   {user?.name || 'Usuário'}
                 </span>
               </div>
@@ -134,9 +134,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </header>
 
         {/* Page content */}
-        <main className="p-4 lg:p-6">
-          {children}
-        </main>
+        <main className="p-4 lg:p-6">{children}</main>
       </div>
     </div>
   );

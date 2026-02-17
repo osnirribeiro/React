@@ -1,4 +1,8 @@
-import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosError } from 'axios';
+import axios, {
+  AxiosInstance,
+  InternalAxiosRequestConfig,
+  AxiosError,
+} from 'axios';
 
 /**
  * Options for getting access token
@@ -23,7 +27,7 @@ let tokenGetter: TokenGetter | null = null;
 /**
  * Sets the token getter function to be used by axios interceptors
  * This should be called from a React component that has access to Auth0 hooks
- * 
+ *
  * @param getter - Function that returns a promise resolving to an access token
  */
 export const setAuthTokenGetter = (getter: TokenGetter | null): void => {
@@ -82,7 +86,10 @@ export const createAuthAxiosInstance = (): AxiosInstance => {
             config.headers.Authorization = `Bearer ${token}`;
           }
         } catch (error) {
-          console.error('[Auth] Failed to get access token for request:', error);
+          console.error(
+            '[Auth] Failed to get access token for request:',
+            error
+          );
           // Don't block the request - let it proceed without token
           // The API will handle 401 responses appropriately
         }

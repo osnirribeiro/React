@@ -1,5 +1,12 @@
 import { QuestionResult } from '../model/types';
-import { Card, CardContent, CardHeader, CardTitle, Badge, Stack } from '@/shared/ui';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Badge,
+  Stack,
+} from '@/shared/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import { cn } from '@/shared/utils/cn';
 
@@ -18,9 +25,7 @@ export const QuestionReview = ({
     <Card className={cn(isCorrect ? 'border-green-500' : 'border-destructive')}>
       <CardHeader>
         <div className="flex items-start justify-between">
-          <CardTitle className="text-lg">
-            Questão {questionNumber}
-          </CardTitle>
+          <CardTitle className="text-lg">Questão {questionNumber}</CardTitle>
           <Badge variant={isCorrect ? 'success' : 'destructive'}>
             {isCorrect ? (
               <CheckCircle2 className="mr-1 h-4 w-4" />
@@ -43,9 +48,11 @@ export const QuestionReview = ({
                 <div
                   key={option.id}
                   className={cn(
-                    'p-3 rounded-md border-2',
+                    'rounded-md border-2 p-3',
                     isCorrectOption && 'border-green-500 bg-green-500/10',
-                    isSelected && !isCorrectOption && 'border-destructive bg-destructive/10',
+                    isSelected &&
+                      !isCorrectOption &&
+                      'border-destructive bg-destructive/10',
                     !isSelected && !isCorrectOption && 'border-border'
                   )}
                 >
@@ -56,17 +63,23 @@ export const QuestionReview = ({
                     {isSelected && !isCorrectOption && (
                       <XCircle className="h-5 w-5 text-destructive" />
                     )}
-                    <span className={cn(
-                      isCorrectOption && 'font-semibold',
-                      isSelected && !isCorrectOption && 'font-semibold'
-                    )}>
+                    <span
+                      className={cn(
+                        isCorrectOption && 'font-semibold',
+                        isSelected && !isCorrectOption && 'font-semibold'
+                      )}
+                    >
                       {option.text}
                     </span>
                     {isCorrectOption && (
-                      <Badge variant="success" className="ml-auto">Correta</Badge>
+                      <Badge variant="success" className="ml-auto">
+                        Correta
+                      </Badge>
                     )}
                     {isSelected && !isCorrectOption && (
-                      <Badge variant="destructive" className="ml-auto">Sua resposta</Badge>
+                      <Badge variant="destructive" className="ml-auto">
+                        Sua resposta
+                      </Badge>
                     )}
                   </div>
                 </div>
@@ -74,9 +87,11 @@ export const QuestionReview = ({
             })}
           </div>
           {question.explanation && (
-            <div className="mt-4 p-4 bg-muted rounded-md">
-              <p className="text-sm font-semibold mb-1">Explicação:</p>
-              <p className="text-sm text-muted-foreground">{question.explanation}</p>
+            <div className="mt-4 rounded-md bg-muted p-4">
+              <p className="mb-1 text-sm font-semibold">Explicação:</p>
+              <p className="text-sm text-muted-foreground">
+                {question.explanation}
+              </p>
             </div>
           )}
         </Stack>

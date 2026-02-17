@@ -1,5 +1,11 @@
 import React, { useEffect, useState, ReactNode } from 'react';
-import { X, CheckCircle2, AlertCircle, Info, AlertTriangle } from 'lucide-react';
+import {
+  X,
+  CheckCircle2,
+  AlertCircle,
+  Info,
+  AlertTriangle,
+} from 'lucide-react';
 import { cn } from '../utils/cn';
 import { Button } from './Button';
 
@@ -65,7 +71,7 @@ export const Toast = ({
         size="sm"
         onClick={() => onClose(id)}
         aria-label="Fechar notificação"
-        className="h-6 w-6 p-0 shrink-0"
+        className="h-6 w-6 shrink-0 p-0"
       >
         <X className="h-4 w-4" />
       </Button>
@@ -92,9 +98,7 @@ export const useToast = () => {
 };
 
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
-  const [toasts, setToasts] = useState<Array<ToastProps & { id: string }>>(
-    []
-  );
+  const [toasts, setToasts] = useState<Array<ToastProps & { id: string }>>([]);
 
   const addToast = (toast: Omit<ToastProps, 'id' | 'onClose'>) => {
     const id = Math.random().toString(36).substr(2, 9);

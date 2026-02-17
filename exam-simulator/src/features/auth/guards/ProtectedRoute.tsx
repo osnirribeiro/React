@@ -19,7 +19,7 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="w-full max-w-md space-y-4 p-8">
           <Skeleton className="h-12 w-full" />
           <Skeleton className="h-64 w-full" />

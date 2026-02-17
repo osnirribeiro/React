@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useExam } from '../../exams/hooks/useExam';
 import { useExamSession } from '../hooks/useExamSession';
+import { ExamHeader, QuestionCard, QuestionNavigation } from '../components';
 import {
-  ExamHeader,
-  QuestionCard,
-  QuestionNavigation,
-} from '../components';
-import { Modal, Button, Stack, Skeleton, ErrorState, Container } from '@/shared/ui';
+  Modal,
+  Button,
+  Stack,
+  Skeleton,
+  ErrorState,
+  Container,
+} from '@/shared/ui';
 
 export const ExamSessionPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,7 +37,7 @@ export const ExamSessionPage = () => {
   if (examLoading || questionsLoading) {
     return (
       <div>
-        <div className="border-b border-border bg-card sticky top-0 z-10">
+        <div className="sticky top-0 z-10 border-b border-border bg-card">
           <div className="container mx-auto px-4 py-4">
             <Skeleton className="h-16 w-full" />
           </div>
@@ -105,7 +108,9 @@ export const ExamSessionPage = () => {
                   onAnswerChange={(optionId) =>
                     updateAnswer(currentQuestion.id, optionId)
                   }
-                  onMarkForReview={() => toggleMarkForReview(currentQuestion.id)}
+                  onMarkForReview={() =>
+                    toggleMarkForReview(currentQuestion.id)
+                  }
                   questionNumber={currentQuestionIndex + 1}
                   totalQuestions={questions.length}
                 />
@@ -138,8 +143,9 @@ export const ExamSessionPage = () => {
       >
         <Stack spacing="md">
           <p className="text-sm text-muted-foreground">
-            Você respondeu {questions.filter((q) => getAnswer(q.id)?.selectedOptionId).length} de{' '}
-            {questions.length} questões.
+            Você respondeu{' '}
+            {questions.filter((q) => getAnswer(q.id)?.selectedOptionId).length}{' '}
+            de {questions.length} questões.
           </p>
           <div className="flex justify-end gap-2">
             <Button

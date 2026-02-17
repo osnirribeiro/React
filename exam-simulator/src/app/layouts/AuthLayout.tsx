@@ -8,14 +8,14 @@ interface AuthLayoutProps {
 
 /**
  * Layout component that initializes Auth0 token getter for axios interceptors
- * 
+ *
  * This component:
  * - Injects the token getter function into the axios interceptor system
  * - Clears the token getter on logout
  * - Ensures axios requests include the Bearer token automatically
- * 
+ *
  * This should wrap the app after AuthProvider is mounted
- * 
+ *
  * Note: This is NOT a visual layout - it's for auth logic only.
  * Use PageLayout or DashboardLayout for visual layouts.
  */

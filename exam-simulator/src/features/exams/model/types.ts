@@ -1,5 +1,10 @@
 export type ExamDifficulty = 'easy' | 'medium' | 'hard';
-export type ExamArea = 'matematica' | 'portugues' | 'ciencias' | 'historia' | 'geografia';
+export type ExamArea =
+  | 'matematica'
+  | 'portugues'
+  | 'ciencias'
+  | 'historia'
+  | 'geografia';
 
 export interface Exam {
   id: string;

@@ -29,8 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md active:scale-[0.98]',
       secondary:
         'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:shadow-md active:scale-[0.98]',
-      ghost:
-        'hover:bg-accent hover:text-accent-foreground active:bg-accent/80',
+      ghost: 'hover:bg-accent hover:text-accent-foreground active:bg-accent/80',
       danger:
         'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-md active:scale-[0.98]',
       outline:

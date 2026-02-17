@@ -1,8 +1,10 @@
 import { InputHTMLAttributes, ChangeEvent, forwardRef } from 'react';
 import { cn } from '../utils/cn';
 
-export interface SwitchProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface SwitchProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   label?: string;
   onCheckedChange?: (checked: boolean) => void;
 }
@@ -38,7 +40,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           >
             <div
               className={cn(
-                'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-background shadow-sm transition-transform peer-checked:translate-x-5'
+                'absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-background shadow-sm transition-transform peer-checked:translate-x-5'
               )}
             />
           </div>

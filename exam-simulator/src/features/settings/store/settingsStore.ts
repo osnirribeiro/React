@@ -19,7 +19,7 @@ const loadSettings = (): Partial<SettingsState> => {
 
 export const useSettingsStore = create<SettingsState>((set) => {
   const saved = loadSettings();
-  
+
   return {
     theme: saved.theme || 'light',
     fontSize: saved.fontSize || 'md',

@@ -55,8 +55,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
 
 CardTitle.displayName = 'CardTitle';
 
-export interface CardDescriptionProps
-  extends HTMLAttributes<HTMLParagraphElement> {}
+export interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {}
 
 export const CardDescription = forwardRef<
   HTMLParagraphElement,
@@ -77,9 +76,7 @@ export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
   ({ className, ...props }, ref) => {
-    return (
-      <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
-    );
+    return <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />;
   }
 );
 
