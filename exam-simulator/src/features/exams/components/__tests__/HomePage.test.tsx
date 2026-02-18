@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom';
 import { HomePage } from '../../pages/HomePage';
@@ -9,21 +9,31 @@ const createTestQueryClient = () =>
     defaultOptions: {
       queries: {
         retry: false,
+        gcTime: 0,
       },
     },
   });
 
-const TestWrapper = ({ children }: { children: React.ReactNode }) => {
-  const queryClient = createTestQueryClient();
-  return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </QueryClientProvider>
-  );
-};
-
 describe('HomePage', () => {
-  it('renders the page title', () => {
+  let queryClient: QueryClient;
+
+  beforeEach(() => {
+    queryClient = createTestQueryClient();
+  });
+
+  afterEach(() => {
+    queryClient.clear();
+  });
+
+  const TestWrapper = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>{children}</BrowserRouter>
+      </QueryClientProvider>
+    );
+  };
+
+  it('renders the page title', async () => {
     render(
       <TestWrapper>
         <HomePage />
@@ -31,15 +41,20 @@ describe('HomePage', () => {
     );
 
     expect(screen.getByText('Simulador de Provas')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByPlaceholderText('Buscar provas...')).toBeInTheDocument();
+    });
   });
 
-  it('renders the search input', () => {
+  it('renders the search input', async () => {
     render(
       <TestWrapper>
         <HomePage />
       </TestWrapper>
     );
 
-    expect(screen.getByPlaceholderText('Buscar provas...')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByPlaceholderText('Buscar provas...')).toBeInTheDocument();
+    });
   });
 });

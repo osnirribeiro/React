@@ -37,7 +37,10 @@ jobs:
         run: npm run format:check
 
       - name: Test
-        run: npm run test -- --run
+        run: npm run test -- --run --reporter=verbose
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        timeout-minutes: 5
 
       - name: Build
         run: npm run build

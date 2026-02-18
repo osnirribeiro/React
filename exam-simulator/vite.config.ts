@@ -14,5 +14,20 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    testTimeout: 10000,
+    hookTimeout: 10000,
+    teardownTimeout: 10000,
+    pool: 'threads',
+    poolOptions: {
+      threads: {
+        singleThread: false,
+        isolate: true,
+      },
+    },
+    maxWorkers: 2,
+    minWorkers: 1,
+    bail: 0,
+    forceRerunTriggers: [],
+    watchExclude: ['**/node_modules/**', '**/dist/**'],
   },
 });
