@@ -42,7 +42,9 @@ describe('HomePage', () => {
 
     expect(screen.getByText('Simulador de Provas')).toBeInTheDocument();
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Buscar provas...')).toBeInTheDocument();
+      expect(
+        screen.getByPlaceholderText('Buscar provas...')
+      ).toBeInTheDocument();
     });
   });
 
@@ -54,7 +56,9 @@ describe('HomePage', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Buscar provas...')).toBeInTheDocument();
+      expect(
+        screen.getByPlaceholderText('Buscar provas...')
+      ).toBeInTheDocument();
     });
   });
 });
